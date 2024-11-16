@@ -75,12 +75,13 @@ export default function GamePage() {
     username: string;
     avatar: string;
     level: number;
-  const params = useParams<{ slug: string }>();
+  }
   
   const [opponent, setOpponent] = useState<Opponent | null>(null);
   const [hasAccepted, setHasAccepted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const params = useParams<{ slug: string }>();
   const match_id = params.slug;
   console.log(match_id);
 
