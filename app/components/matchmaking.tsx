@@ -107,55 +107,59 @@ export const MatchLobbies = () => {
                 <p className="text-sm text-gray-500">Starts at: {match.startTime}</p>
               </CardBody>
               <CardFooter>
-                <Modal>
-                  <ModalTrigger asChild>
-                    <Button onClick={() => setIsDialogOpen(true)}>
-                      <FastForward className="mr-2 h-4 w-4" />
-                      Predict
-                    </Button>
-                  </ModalTrigger>
-                  <ModalContent className="sm:max-w-[425px]">
-                    <ModalHeader>
-                      <p>Predict the Winner</p>
-                    </ModalHeader>
-                    <ModalBody>
-                      <div className="grid gap-4">
-                        <div className="grid grid-cols-2 gap-4">
-                          <Button
-                            onClick={() => handlePredict(match.playerA)}
-                            variant={selectedPrediction === match.playerA ? "default" : "outline"}
-                          >
-                            {match.playerA}
-                          </Button>
-                          <Button
-                            onClick={() => handlePredict(match.playerB)}
-                            variant={selectedPrediction === match.playerB ? "default" : "outline"}
-                          >
-                            {match.playerB}
-                          </Button>
-                        </div>
-                        <div className="grid gap-2">
-                          <p>Bet Amount</p>
-                          <Input
-                            id="betAmount"
-                            type="number"
-                            placeholder="Enter bet amount"
-                            value={betAmount}
-                            onChange={handleBetAmountChange}
-                          />
-                        </div>
-                      </div>
-                    </ModalBody>
-                    <ModalFooter>
-                      <Button 
-                        onClick={handleConfirmBet} 
-                        disabled={!selectedPrediction || !betAmount}
-                      >
-                        Confirm Bet
-                      </Button>
-                    </ModalFooter>
-                  </ModalContent>
-                </Modal>
+              <Modal isOpen={isDialogOpen} onOpenChange={setIsDialogOpen}>
+  <ModalContent className="sm:max-w-[425px]">
+    {(onClose) => (
+      <>
+        <ModalHeader>
+          <p>Predict the Winner</p>
+        </ModalHeader>
+        <ModalBody>
+          <div className="grid gap-4">
+            <div className="grid grid-cols-2 gap-4">
+              <Button
+                onClick={() => handlePredict(match.playerA)}
+                variant={selectedPrediction === match.playerA ? "solid" : "bordered"}
+              >
+                {match.playerA}
+              </Button>
+              <Button
+                onClick={() => handlePredict(match.playerB)}
+                variant={selectedPrediction === match.playerB ? "solid" : "bordered"}
+              >
+                {match.playerB}
+              </Button>
+            </div>
+            <div className="grid gap-2">
+              <p>Bet Amount</p>
+              <Input
+                id="betAmount"
+                type="number"
+                placeholder="Enter bet amount"
+                value={betAmount}
+                onChange={handleBetAmountChange}
+              />
+            </div>
+          </div>
+        </ModalBody>
+        <ModalFooter>
+          <Button 
+            onClick={handleConfirmBet} 
+            isDisabled={!selectedPrediction || !betAmount}
+          >
+            Confirm Bet
+          </Button>
+        </ModalFooter>
+      </>
+    )}
+  </ModalContent>
+</Modal>
+
+{/* Trigger button outside the modal */}
+<Button onClick={() => setIsDialogOpen(true)}>
+  <FastForward className="mr-2 h-4 w-4" />
+  Predict
+</Button>
               </CardFooter>
             </Card>
           ))}
