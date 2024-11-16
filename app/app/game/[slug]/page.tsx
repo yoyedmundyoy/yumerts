@@ -6,6 +6,11 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import { User, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Spinner } from "@nextui-org/react";
 
+interface Message {
+  content: string;
+  // Add other properties your message object has
+}
+
 const messages = [
   { 
     id: 1,
@@ -39,7 +44,7 @@ const messages = [
   }
 ];
 
-const MessageCard = ({ message }) => (
+const MessageCard = ({ message }: { message: Message }) => (
   <Card className="mb-1">
     <CardBody className="text-sm">
       <p>{message.content}</p>
