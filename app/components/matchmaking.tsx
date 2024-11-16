@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button } from "@nextui-org/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 import { Input } from "@nextui-org/input";
-import { Label } from "@nextui-org/label";
 import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
 import { LogOut, Eye, Play, FastForward, Plus } from 'lucide-react';
 
@@ -136,7 +135,7 @@ export const MatchLobbies = () => {
                           </Button>
                         </div>
                         <div className="grid gap-2">
-                          <Label htmlFor="betAmount">Bet Amount</Label>
+                          <p>Bet Amount</p>
                           <Input
                             id="betAmount"
                             type="number"
