@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "@nextui-org/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@nextui-org/ui/avatar";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@nextui-org/dialog";
 import { Input } from "@nextui-org/input";
 import { Label } from "@nextui-org/label";
@@ -81,10 +80,6 @@ export const MatchLobbies = () => {
         <div className="flex items-center space-x-4">
           <Card className="w-auto">
             <CardBody className="flex items-center space-x-4 p-2">
-              <Avatar>
-                <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
-              </Avatar>
               <div>
                 <p className="text-sm font-medium">{user.name}</p>
                 <p className="text-xs text-gray-500">Level {user.level}</p>
