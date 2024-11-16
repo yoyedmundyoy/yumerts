@@ -15,7 +15,7 @@ import { createPublicClient, encodeFunctionData, erc20Abi, http } from "viem";
 import { arbitrumSepolia } from "viem/chains";
 import { useEffect, useState } from "react";
 
-export const publicClient = createPublicClient({
+const publicClient = createPublicClient({
   chain: arbitrumSepolia,
   transport: http(),
 });
