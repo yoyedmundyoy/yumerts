@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from @nextui-org/button;
+import { Button } from "@nextui-org/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
