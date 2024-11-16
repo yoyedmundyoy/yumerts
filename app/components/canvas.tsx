@@ -117,7 +117,7 @@ const YumertsCanvas: React.FC<CanvasProps> = ({ inputReceived }: CanvasProps) =>
           cellSize
         );
       }
-
+      
       // Draw movement arrows
       if (troop.targetCoordinate) {
         const { x: endX, y: endY } = troop.targetCoordinate;

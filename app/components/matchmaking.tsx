@@ -117,7 +117,7 @@ export const MatchLobbies = () => {
                   </ModalTrigger>
                   <ModalContent className="sm:max-w-[425px]">
                     <ModalHeader>
-                      <Text b size={18}>Predict the Winner</Text>
+                      <p>Predict the Winner</p>
                     </ModalHeader>
                     <ModalBody>
                       <div className="grid gap-4">
