@@ -1,6 +1,15 @@
 import {encodeFunctionData, erc20Abi} from 'viem';
 
-export const payUSDC = async (wallets, amountToDeposit) => {
+interface Wallet {
+  address: Address;
+  // Add other wallet properties you're using
+}
+
+
+export const payUSDC = async (
+  wallets: Wallet[], 
+  amountToDeposit: bigint | number
+) => {
 
     let current_wallet = wallets[0];
     current_wallet.switchChain(421614);
