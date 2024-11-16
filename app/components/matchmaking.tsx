@@ -85,10 +85,15 @@ export const MatchLobbies = () => {
               </div>
             </CardBody>
           </Card>
-          <Button variant="destructive" size="sm" onClick={handleLogout}>
-            <LogOut className="mr-2 h-4 w-4" />
-            Logout
-          </Button>
+          <Button 
+  color="danger"    // Use color="danger" instead of variant="destructive"
+  size="sm" 
+  onClick={handleLogout}
+  variant="flat"    // Optional: you can use "solid", "flat", "faded", etc.
+>
+  <LogOut className="mr-2 h-4 w-4" />
+  Logout
+</Button>
         </div>
       </header>
       <Button className="mb-6" onClick={handleCreateMatch}>
