@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from "@nextui-org/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@nextui-org/dialog";
 import { Input } from "@nextui-org/input";
 import { Label } from "@nextui-org/label";
+import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
 import { LogOut, Eye, Play, FastForward, Plus } from 'lucide-react';
 
 // Sample data for matches
@@ -108,48 +108,55 @@ export const MatchLobbies = () => {
                 <p className="text-sm text-gray-500">Starts at: {match.startTime}</p>
               </CardBody>
               <CardFooter>
-                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                  <DialogTrigger asChild>
-                    <Button>
+                <Modal>
+                  <ModalTrigger asChild>
+                    <Button onClick={() => setIsDialogOpen(true)}>
                       <FastForward className="mr-2 h-4 w-4" />
                       Predict
                     </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
-                    <DialogHeader>
-                      <DialogTitle>Predict the Winner</DialogTitle>
-                    </DialogHeader>
-                    <div className="grid gap-4 py-4">
-                      <div className="grid grid-cols-2 gap-4">
-                        <Button
-                          onClick={() => handlePredict(match.playerA)}
-                          variant={selectedPrediction === match.playerA ? "default" : "outline"}
-                        >
-                          {match.playerA}
-                        </Button>
-                        <Button
-                          onClick={() => handlePredict(match.playerB)}
-                          variant={selectedPrediction === match.playerB ? "default" : "outline"}
-                        >
-                          {match.playerB}
-                        </Button>
+                  </ModalTrigger>
+                  <ModalContent className="sm:max-w-[425px]">
+                    <ModalHeader>
+                      <Text b size={18}>Predict the Winner</Text>
+                    </ModalHeader>
+                    <ModalBody>
+                      <div className="grid gap-4">
+                        <div className="grid grid-cols-2 gap-4">
+                          <Button
+                            onClick={() => handlePredict(match.playerA)}
+                            variant={selectedPrediction === match.playerA ? "default" : "outline"}
+                          >
+                            {match.playerA}
+                          </Button>
+                          <Button
+                            onClick={() => handlePredict(match.playerB)}
+                            variant={selectedPrediction === match.playerB ? "default" : "outline"}
+                          >
+                            {match.playerB}
+                          </Button>
+                        </div>
+                        <div className="grid gap-2">
+                          <Label htmlFor="betAmount">Bet Amount</Label>
+                          <Input
+                            id="betAmount"
+                            type="number"
+                            placeholder="Enter bet amount"
+                            value={betAmount}
+                            onChange={handleBetAmountChange}
+                          />
+                        </div>
                       </div>
-                      <div className="grid gap-2">
-                        <Label htmlFor="betAmount">Bet Amount</Label>
-                        <Input
-                          id="betAmount"
-                          type="number"
-                          placeholder="Enter bet amount"
-                          value={betAmount}
-                          onChange={handleBetAmountChange}
-                        />
-                      </div>
-                      <Button onClick={handleConfirmBet} disabled={!selectedPrediction || !betAmount}>
+                    </ModalBody>
+                    <ModalFooter>
+                      <Button 
+                        onClick={handleConfirmBet} 
+                        disabled={!selectedPrediction || !betAmount}
+                      >
                         Confirm Bet
                       </Button>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                    </ModalFooter>
+                  </ModalContent>
+                </Modal>
               </CardFooter>
             </Card>
           ))}
