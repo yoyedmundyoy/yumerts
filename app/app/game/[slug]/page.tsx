@@ -158,7 +158,7 @@ export default function GamePage() {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button auto onPress={handleAccept} color="primary">
+            <Button onPress={handleAccept} color="primary">
               Accept
             </Button>
           </ModalFooter>
@@ -171,7 +171,7 @@ export default function GamePage() {
             <ModalHeader>Error</ModalHeader>
             <ModalBody>{error}</ModalBody>
             <ModalFooter>
-              <Button auto onPress={() => setError(null)}>
+              <Button onPress={() => setError(null)}>
                 Close
               </Button>
             </ModalFooter>
