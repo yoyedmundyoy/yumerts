@@ -128,7 +128,7 @@ export default function GamePage() {
         </div>
       </div>
 
-      <Modal isOpen={isSearching} hideCloseButton preventClose>
+      <Modal isOpen={isSearching} hideCloseButton isDismissable={false} >
         <ModalContent>
           <ModalBody>
             <div className="flex flex-col items-center">
