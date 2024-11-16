@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "@nextui-org/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@nextui-org/card";
+import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@nextui-org/ui/avatar";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@nextui-org/dialog";
 import { Input } from "@nextui-org/input";
@@ -80,7 +80,7 @@ export const MatchLobbies = () => {
         <h1 className="text-2xl font-bold">Match Making Lobbies</h1>
         <div className="flex items-center space-x-4">
           <Card className="w-auto">
-            <CardContent className="flex items-center space-x-4 p-2">
+            <CardBody className="flex items-center space-x-4 p-2">
               <Avatar>
                 <AvatarImage src={user.avatar} alt={user.name} />
                 <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
@@ -89,7 +89,7 @@ export const MatchLobbies = () => {
                 <p className="text-sm font-medium">{user.name}</p>
                 <p className="text-xs text-gray-500">Level {user.level}</p>
               </div>
-            </CardContent>
+            </CardBody>
           </Card>
           <Button variant="destructive" size="sm" onClick={handleLogout}>
             <LogOut className="mr-2 h-4 w-4" />
@@ -107,11 +107,11 @@ export const MatchLobbies = () => {
           {matches.startingSoon.map((match) => (
             <Card key={match.id} className="mb-4">
               <CardHeader>
-                <CardTitle>{match.playerA} vs {match.playerB}</CardTitle>
+                {match.playerA} vs {match.playerB}
               </CardHeader>
-              <CardContent>
+              <CardBody>
                 <p className="text-sm text-gray-500">Starts at: {match.startTime}</p>
-              </CardContent>
+              </CardBody>
               <CardFooter>
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
@@ -164,11 +164,11 @@ export const MatchLobbies = () => {
           {matches.ongoing.map((match) => (
             <Card key={match.id} className="mb-4">
               <CardHeader>
-                <CardTitle>{match.playerA} vs {match.playerB}</CardTitle>
+                {match.playerA} vs {match.playerB}
               </CardHeader>
-              <CardContent>
+              <CardBody>
                 <p className="text-sm text-gray-500">Duration: {match.duration}</p>
-              </CardContent>
+              </CardBody>
               <CardFooter>
                 <Button onClick={() => handleSpectate(match.id)}>
                   <Eye className="mr-2 h-4 w-4" />
@@ -183,11 +183,11 @@ export const MatchLobbies = () => {
           {matches.past.map((match) => (
             <Card key={match.id} className="mb-4">
               <CardHeader>
-                <CardTitle>{match.playerA} vs {match.playerB}</CardTitle>
+                {match.playerA} vs {match.playerB}
               </CardHeader>
-              <CardContent>
+              <CardBody>
                 <p className="text-sm text-gray-500">Result: {match.result}</p>
-              </CardContent>
+              </CardBody>
               <CardFooter>
                 <Button onClick={() => handleReplay(match.id)}>
                   <Play className="mr-2 h-4 w-4" />
