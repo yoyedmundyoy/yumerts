@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from "@nextui-org/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@nextui-org/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@nextui-org/ui/avatar";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@nextui-org/dialog";
 import { Input } from "@nextui-org/input";
 import { Label } from "@nextui-org/label";
 import { LogOut, Eye, Play, FastForward, Plus } from 'lucide-react';
