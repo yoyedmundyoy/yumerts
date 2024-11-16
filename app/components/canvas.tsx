@@ -16,10 +16,10 @@ interface Coordinate {
 }
 
 interface CanvasProps {
-  inputReceived: (input: any) => void;
+  inputReceived: (input: { troopId: string; targetCoordinate: Coordinate }) => void;
 }
 
-const YumertsCanvas: React.FC<CanvasProps> = ({ inputReceived }) => {
+const YumertsCanvas: React.FC<CanvasProps> = ({ inputReceived }: CanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [troops, setTroops] = React.useState<Troop[]>([]);
   const [selectedTroop, setSelectedTroop] = React.useState<Troop | null>(null);
@@ -129,7 +129,7 @@ const YumertsCanvas: React.FC<CanvasProps> = ({ inputReceived }) => {
 
         // Draw arrowhead
         const headlen = 10;
-        const angle = Math.atan2(endY - startY, endX - startX);
+        const angle = Math.atan2(endY - troop.currentCoordinate.y, endX - troop.currentCoordinate.x);
         ctx.beginPath();
         ctx.moveTo((endX - 1) * cellSize + cellSize / 2, (endY - 1) * cellSize + cellSize / 2);
         ctx.lineTo(
@@ -173,7 +173,7 @@ const YumertsCanvas: React.FC<CanvasProps> = ({ inputReceived }) => {
     const x = Math.floor((event.clientX - rect.left) / cellSize) + 1;
     const y = Math.floor((event.clientY - rect.top) / cellSize) + 1;
 
-    const clickedTroop = troops.find(troop => 
+    const clickedTroop: Troop | undefined = troops.find((troop: Troop) => 
       troop.currentCoordinate.x === x && troop.currentCoordinate.y === y
     );
 
