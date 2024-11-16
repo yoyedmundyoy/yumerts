@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "@nextui-org/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 import { Input } from "@nextui-org/input";
-import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
 import { LogOut, Eye, Play, FastForward, Plus } from 'lucide-react';
 
 // Sample data for matches
