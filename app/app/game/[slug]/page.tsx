@@ -71,11 +71,16 @@ const LatestMessageList = () => (
 export default function GamePage() {
   const [socket, setSocket] = useState<WebSocket | null>(null);
   const [isSearching, setIsSearching] = useState(true);
-  const [opponent, setOpponent] = useState(null);
+  interface Opponent {
+    username: string;
+    avatar: string;
+    level: number;
+  const params = useParams<{ slug: string }>();
+  
+  const [opponent, setOpponent] = useState<Opponent | null>(null);
   const [hasAccepted, setHasAccepted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const params = useParams();
   const match_id = params.slug;
   console.log(match_id);
 
